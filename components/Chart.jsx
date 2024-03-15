@@ -6,15 +6,6 @@ const ReactApexChart = dynamic(() => import("react-apexcharts"), {
   ssr: false,
 });
 
-// Filter Data for no of request vs per day
-const getRequestCountPerDay = (data) => {
-  const counts = {};
-  data.forEach((request) => {
-    const date = request.created_at.split("T")[0];
-    counts[date] = (counts[date] || 0) + 1;
-  });
-  return Object.entries(counts).map(([date, count]) => ({ x: date, y: count }));
-};
 
 const Chart = () => {
   const [ChartData, setChartData] = useState();
@@ -60,6 +51,17 @@ const Chart = () => {
       numberOfReq: numberOfReq,
     }));
   };
+
+  // Filter Data for no of request vs per day
+const getRequestCountPerDay = (data) => {
+    const counts = {};
+    data.forEach((request) => {
+      const date = request.created_at.split("T")[0];
+      counts[date] = (counts[date] || 0) + 1;
+    });
+    return Object.entries(counts).map(([date, count]) => ({ x: date, y: count }));
+  };
+  
 
   const options = {
     chart: {

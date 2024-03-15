@@ -1,8 +1,8 @@
-# Star Wars Guide Application
+# Apex-Charts Application
 
 This is a React-based Weather Web Application with support for multiple weather related data such as current temp, wind, 3 hour forecast etc.
 Visit the Application -
-https://nimbus-hub-weather.netlify.app/
+
 
 ## Table of Contents
 
@@ -16,7 +16,7 @@ https://nimbus-hub-weather.netlify.app/
 ## Features
 
 •	Frontend development using ReactJS, Next JS, Tailwind for creating interactive, intuitive and responsive UI. <br>
-•	SWAPI implementation using Axios. <br>
+•	API implementation using Axios. <br>
 •	Custom Card for showing star wars related information such as movies, characters, planets. <br>
 •	Responsive and intuitive UI for across devices such as desktop and mobile. <br>
 •	Create efficient and hightly optimized react components. <br>
@@ -28,7 +28,7 @@ https://nimbus-hub-weather.netlify.app/
 
 •	Frontend – React JS, Next JS, Javascript, Tailwind <br>
 •	Backend  – JavaScript <br>
-•	API – SWAPI <br>
+•	API – Custom API <br>
 •	NPM Packages – Cors, Axios, React Dom, 
 
 ## Demo

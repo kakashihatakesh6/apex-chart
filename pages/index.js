@@ -415,7 +415,7 @@ export default function Home() {
  
   return (
     <>
-      <div className="min-h-screen flex w-full flex-col justify-center items-center">
+      <div className="min-h-screen flex w-full flex-col justify-center mt-20 items-center">
         <h1 className="text-3xl text-white">Welcome to Apex Chart</h1>
         <div className="flex w-full flex-col items-center justify-center">
             <Chart />
