@@ -192,9 +192,8 @@ const getRequestCountPerDay = (data) => {
       size: 1,
     },
     xaxis: {
-      type: "datetime",
     //   categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
-    //   categories: dateReq?.map((item) => item.x),
+      categories: dateReq?.map((item) => item.x),
       title: {
         text: "Date",
       },
