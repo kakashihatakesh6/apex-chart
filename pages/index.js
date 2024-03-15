@@ -1,8 +1,5 @@
 /* eslint-disable react/no-deprecated */
-import { useState } from "react";
-import dynamic from 'next/dynamic';
 import Chart from "@/components/Chart";
-const ReactApexChart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 const apexData = {
   requests: [
