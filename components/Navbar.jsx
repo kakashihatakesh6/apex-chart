@@ -32,7 +32,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="w-full fixed z-40">
+    <nav className="w-full fixed top-0 z-40">
       <div
         className={`px-4 md:px-16 py-6 flex flex-row items-center transition duration-500 ${
           showBackground ? "bg-black bg-opacity-100" : ""
@@ -45,14 +45,14 @@ const Navbar = () => {
             <NavbarItem label="Home" />
           </Link>
           <Link href={"/planets"}>
-            <NavbarItem label="Planets" />
+            <NavbarItem label="About Us" />
           </Link>
-          <Link href={"/movies"}>
+          {/* <Link href={"/movies"}>
             <NavbarItem label="Movies" />
           </Link>
           <Link href={"/characters"}>
             <NavbarItem label="Characters" />
-          </Link>
+          </Link> */}
          
         </div>
 

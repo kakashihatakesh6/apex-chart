@@ -1,7 +1,7 @@
 /* eslint-disable react/no-deprecated */
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import dynamic from 'next/dynamic';
-import Chart from "@/components/Chart";
+import axios from "axios";
 const ReactApexChart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 const apexData = {
@@ -409,16 +409,111 @@ const apexData = {
   "info": "Request API data sample | Internship Task 2024"
 }
 
+const kk = {
 
-export default function Home() {  
+  series: [
+    {
+      name: "High - 2013",
+      data: [28, 29, 33, 36, 32, 32, 33]
+    },
+    {
+      name: 'Requests',
+      data: apexData.requests.map((item) => item.name)
+    }
+    
 
- 
+    // {
+    //   name: "Low - 2013",
+    //   data: [12, 11, 14, 18, 17, 13, 13]
+    // }
+  ],
+  options: {
+    
+    chart: {
+      height: 350,
+      type: 'line',
+      dropShadow: {
+        enabled: true,
+        color: '#000',
+        top: 18,
+        left: 7,
+        blur: 10,
+        opacity: 0.2
+      },
+      toolbar: {
+        show: false
+      }
+    },
+    colors: ['#77B6EA', '#545454'],
+    dataLabels: {
+      enabled: true,
+    },
+    stroke: {
+      curve: 'smooth'
+    },
+    title: {
+      text: 'Average High & Low Temperature',
+      align: 'left'
+    },
+    grid: {
+      borderColor: '#e7e7e7',
+      row: {
+        colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+        opacity: 0.5
+      },
+    },
+    markers: {
+      size: 1
+    },
+    xaxis: {
+      categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+      title: {
+        text: 'Month'
+      }
+    },
+    yaxis: {
+      title: {
+        text: 'Temperature'
+      },
+      min: 5,
+      max: 40
+    },
+    legend: {
+      position: 'top',
+      horizontalAlign: 'right',
+      floating: true,
+      offsetY: -25,
+      offsetX: -5
+    }
+  },
+}
+
+
+export default function Chart2() {
+  const [data, setData] = useState(kk)
+
+
+  const getRequestCountPerDay = (data) => {
+    const counts = {};
+    data.requests.forEach((request) => {
+      const date = request.created_at.split('T')[0];
+      counts[date] = (counts[date] || 0) + 1;
+    });
+    return Object.entries(counts).map(([date, count]) => ({ x: date, y: count }));
+  };
+  
+  const requestCountData = getRequestCountPerDay(apexData);
+  console.log(requestCountData);
+
+
   return (
     <>
       <div className="min-h-screen flex w-full flex-col justify-center items-center">
         <h1 className="text-3xl text-white">Welcome to Apex Chart</h1>
-        <div className="flex w-full flex-col items-center justify-center">
-            <Chart />
+        <div className="flex w-full justify-center">
+          <div id="chart" className="bg-white container mx-8 px-8 mt-12">
+            <ReactApexChart options={data?.options} series={data?.series} type="line" height={350} />
+          </div>
         </div>
         <div id="html-dist"></div>
       </div>
