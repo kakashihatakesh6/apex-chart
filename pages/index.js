@@ -1,5 +1,5 @@
 /* eslint-disable react/no-deprecated */
-import Chart from "@/components/Chart";
+import Chart2 from "@/components/Chart";
 
 const apexData = {
   requests: [
@@ -415,7 +415,7 @@ export default function Home() {
       <div className="min-h-screen flex w-full flex-col justify-center mt-20 items-center">
         <h1 className="text-3xl text-white">Welcome to Apex Chart</h1>
         <div className="flex w-full flex-col items-center justify-center">
-            <Chart />
+            <Chart2 />
         </div>
         <div id="html-dist"></div>
       </div>

@@ -7,7 +7,7 @@ const ReactApexChart = dynamic(() => import("react-apexcharts"), {
 });
 
 
-const Chart = () => {
+const Chart2 = () => {
   const [ChartData, setChartData] = useState();
   const [hotelData, sethotelData] = useState();
   const [dateReq, setDateReq] = useState();
@@ -118,7 +118,7 @@ const getRequestCountPerDay = (data) => {
       },
     },
     yaxis: {
-      type: "text",
+    //   type: "text",
     //   categories: [0, 2, 4, 6, 8],
       // categories: hotelData.map((hotel) => hotel.numberOfReq.length),
       title: {
@@ -260,4 +260,4 @@ const getRequestCountPerDay = (data) => {
   );
 };
 
-export default Chart;
+export default Chart2;
